@@ -25,20 +25,6 @@ REQUIREMENTS
 ------------
 The minimum requirement by this project template that your Web server supports PHP 5.4.0.
 
-INSTALLATION
----------------
-
-
-Install via Composer
---------------------
-
-If you do not have Composer, you may install it by following the instructions at getcomposer.org.
-
-You can then install this project template using the following command:
-
->php composer.phar global require "fxp/composer-asset-plugin:~1.1.0
->
->php composer.phar create-project --prefer-dist --stability=dev piantgrunger/yii2-single-app-template single
 
 CONFIGURATION
 --------------
@@ -68,7 +54,7 @@ http://localhost/single/web/
 NOTES:
 ------
 
- there is build in user and password in this application : username = admin password = admin
+ there is build in user and password in this application : username = admin password = admin1234
 Check and edit the other files in the config/ directory to customize your application as required.
 Refer to the README in the tests direcotry for information specific to basic application tests.
 
