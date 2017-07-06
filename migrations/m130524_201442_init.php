@@ -25,8 +25,6 @@ class m130524_201442_init extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
-        $hash=
-        
         $this->execute("INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, "
                 . "`password_reset_token`, `email`, `status`, `created_at`, `updated_at`) VALUES (NULL, 'admin', "
                 . "'Bj2xEpff-WmRLtY4TyHPHxRp6eAxsNZ0', ".

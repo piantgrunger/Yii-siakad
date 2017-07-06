@@ -8,8 +8,7 @@ use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 
-
-use yii\web\UploadedFile;
+use yii\helpers\ArrayHelper;
 
 
 /**
@@ -33,7 +32,9 @@ use yii\web\UploadedFile;
  * @property string $ket
  * @property string $created_at
  * @property string $updated_at
+ *  getDataBrowseKaryawan()
  */
+
 class karyawan extends \yii\db\ActiveRecord
 {
     /**
@@ -102,5 +103,17 @@ class karyawan extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+    
+       
+     public function getDataBrowseKaryawan()
+    {        
+     return ArrayHelper::map(
+                     karyawan::find()
+                                        ->select([
+                                                'id_karyawan','ket_karyawan' => 'CONCAT(kode_karyawan," - ",nama_karyawan)'
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_karyawan', 'ket_karyawan');
     }
 }

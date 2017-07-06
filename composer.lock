@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "865f3b64317248cb25e1becef081ed38",
+    "content-hash": "c90dd56d160af56b0b8143fb3cf50882",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -2317,6 +2317,63 @@
                 "yii2"
             ],
             "time": "2015-12-05T10:37:16+00:00"
+        },
+        {
+            "name": "league/csv",
+            "version": "8.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "209c92c0b4094e1a49333a13b5a787e6cb0377cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/209c92c0b4094e1a49333a13b5a787e6cb0377cf",
+                "reference": "209c92c0b4094e1a49333a13b5a787e6cb0377cf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Csv data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
+            "keywords": [
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "write"
+            ],
+            "time": "2017-04-26 08:19:04"
         },
         {
             "name": "mpdf/mpdf",

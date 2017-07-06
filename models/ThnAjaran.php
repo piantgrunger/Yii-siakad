@@ -8,6 +8,9 @@ use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 
+use yii\helpers\ArrayHelper;
+
+
 
 
 /**
@@ -102,4 +105,16 @@ class ThnAjaran extends \yii\db\ActiveRecord
              return true;
          }
     }
+    
+    public function getDataBrowseThnAjaran()
+    {        
+     return ArrayHelper::map(
+                     ThnAjaran::find()
+                                        ->select([
+                                                'id_Thn_Ajaran','ket_Thn_Ajaran' => 'kode_Thn_Ajaran'
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_Thn_Ajaran', 'ket_Thn_Ajaran');
+    }
+
 }
