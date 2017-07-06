@@ -1,5 +1,6 @@
 <?php
 use hscstudio\mimin\components\Mimin;
+use yii\bootstrap\Nav;
 $menuItems =
         [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => '@web/gii','visible' => !Yii::$app->user->isGuest],
@@ -15,6 +16,15 @@ $menuItems =
                     ['label' => 'User', 'icon' => ' fa fa-circle-o', 'url' => '@web/mimin/user','visible' => !Yii::$app->user->isGuest],
                    ]]
                         ,
+                   [
+                        'visible' => !Yii::$app->user->isGuest,
+                        'label' => 'Setting',
+                        'icon' => 'fa fa-share',
+                        'url' => '#',
+                        'items' => [
+               
+                      ['label' => 'Setting Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => "@web/setting/index",],
+                   ]],
                    
                    [
                         'visible' => !Yii::$app->user->isGuest,
@@ -37,7 +47,7 @@ $menuItems =
     <section class="sidebar">
 
 
-
+              
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu'],
