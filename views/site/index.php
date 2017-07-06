@@ -7,7 +7,8 @@
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>SELAMAT DATANG!</h1>
+       
+             <img src="image/logo.png" alt=""/>
 
         
 
