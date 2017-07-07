@@ -33,6 +33,7 @@ $menuItems =
                         'url' => '#',
                         'items' => [
                      ['label' => 'Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => "@web/thn-ajaran/index",],
+                  ['label' => 'Biaya', 'icon' => 'fa fa-circle-o', 'url' => "@web/biaya/index",],
                 
                       ['label' => 'Karyawan', 'icon' => 'fa fa-circle-o', 'url' => "@web/karyawan/index",],
                         ['label' => 'Siswa', 'icon' => 'fa fa-circle-o', 'url' => "@web/siswa/index",],      

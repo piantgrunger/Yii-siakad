@@ -37,7 +37,7 @@ $config = [
             Module::FORMAT_TIME => 'php:H:i:s',
             Module::FORMAT_DATETIME => 'php:Y-m-d H:i:s',
         ],
- 
+       
         // set your display timezone
         'displayTimezone' => 'Asia/Jakarta',
  
@@ -87,6 +87,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'formatter' => [
+     
+        'decimalSeparator' => ',',
+        'thousandSeparator' => '.',
+        'currencyCode' => 'Rp',
+   ], 
        
         
        'authManager' => [
