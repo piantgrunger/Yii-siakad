@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
+
 /**
  * KaryawanController implements the CRUD actions for Karyawan model.
  */
@@ -127,9 +128,16 @@ class KaryawanController extends Controller
      */
     public function actionDelete($id)
     {
+      try
+      {
         $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+      
+      }
+      catch(\yii\db\IntegrityException  $e)
+      {
+	Yii::$app->session->setFlash('error', "Data Tidak Dapat Dihapus Karena Dipakai Modul Lain");
+       } 
+         return $this->redirect(['index']);
     }
 
     /**

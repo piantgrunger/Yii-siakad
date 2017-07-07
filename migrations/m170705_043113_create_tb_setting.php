@@ -31,7 +31,8 @@ class m170705_043113_create_tb_setting extends Migration
             'id_thn_ajaran',
             'tb_m_thn_ajaran',
             'id_thn_ajaran',
-            'CASCADE'
+            'RESTRICT',
+            'CASCADE'    
         );
         
         
@@ -42,7 +43,8 @@ class m170705_043113_create_tb_setting extends Migration
             'id_kepsek',
             'tb_m_karyawan',
             'id_karyawan',
-            'CASCADE'
+            'RESTRICT',
+            'CASCADE'    
         );
 
                 $this->execute("INSERT INTO `tb_setting` (semester) VALUES ('Gasal')");

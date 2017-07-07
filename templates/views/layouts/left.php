@@ -1,6 +1,6 @@
 <?php
 use hscstudio\mimin\components\Mimin;
-use yii\bootstrap\Nav;
+
 $menuItems =
         [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => '@web/gii','visible' => !Yii::$app->user->isGuest],
@@ -35,6 +35,7 @@ $menuItems =
                      ['label' => 'Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => "@web/thn-ajaran/index",],
                 
                       ['label' => 'Karyawan', 'icon' => 'fa fa-circle-o', 'url' => "@web/karyawan/index",],
+                        ['label' => 'Siswa', 'icon' => 'fa fa-circle-o', 'url' => "@web/siswa/index",],      
                    ]]
                         ,
                    

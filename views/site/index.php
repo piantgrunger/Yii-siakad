@@ -9,22 +9,13 @@
     <div class="jumbotron">
        
              <img src="image/logo.png" alt=""/>
-
         
+    <div class="container">
+  <h2>   <?=$nama_sekolah;?></h2>
+   <h3>   <?=$alamat_sekolah;?></h3>
+  </div>    
 
     </div>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-
-
-            </div>
-            <div class="col-lg-4">
-            </div>
-            </div>
-        </div>
-
-    </div>
+    
 </div>

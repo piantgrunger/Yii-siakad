@@ -5,7 +5,7 @@ use \kartik\datecontrol\Module;
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => '',
+    'id' => 'SIAKAD',
     'name' => 'SIAKAD',
     // set target language to be Indonesia
   'language' => 'id-ID',

@@ -14,7 +14,6 @@ class m170302_092158_create_tb_m_karyawan extends Migration
             'kode_karyawan' => $this->string(50)->notNull()->unique(),
             'nama_karyawan' => $this->string(50)->notNull(),
             'foto_karyawan' => $this->string(200),
-            'alamat_karyawan' => $this->string(50),
             'telp_karyawan' => $this->string(50),
             'alamat_karyawan' => $this->text(),
             'no_id' => $this->string(50),

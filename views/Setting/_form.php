@@ -11,7 +11,7 @@ use kartik\select2\Select2;
 
 <div class="setting-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin( ['options' => ['enctype' => 'multipart/form-data']]); ?>
         <?= $form->errorSummary($model) ?> <!-- ADDED HERE -->
 
     <?= $form->field($model, 'id_thn_ajaran')->widget(Select2::classname(), [
@@ -23,7 +23,14 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'semester')->dropDownList([ 'Gasal' => 'Gasal', 'Genap' => 'Genap', ], ['prompt' => '']) ?>
 
-    <?= $form->field($model, 'id_kepsek')->widget(Select2::classname(), [
+    <?= $form->field($model, 'nama_sekolah')->textInput(['maxlength' => true]) ?>
+
+  
+    
+    <?= $form->field($model, 'alamat_sekolah')->textarea(['rows' => 6]) ?>
+
+  
+  <?= $form->field($model, 'id_kepsek')->widget(Select2::classname(), [
     'data' => $dataKaryawan,
     'options' => ['placeholder' => 'Pilih Karyawan ...'],
     'pluginOptions' => [

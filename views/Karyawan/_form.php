@@ -21,7 +21,6 @@ use kartik\datecontrol\DateControl;
     <?= $form->field($model, 'nama_karyawan')->textInput(['maxlength' => true]) ?>
 
   
-    
     <?= $form->field($model, 'alamat_karyawan')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'telp_karyawan')->textInput(['maxlength' => true]) ?>

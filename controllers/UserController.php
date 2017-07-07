@@ -102,9 +102,16 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
+        try
+      {
         $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+      
+      }
+      catch(\yii\db\IntegrityException  $e)
+      {
+	Yii::$app->session->setFlash('error', "Data Tidak Dapat Dihapus Karena Dipakai Modul Lain");
+       } 
+         return $this->redirect(['index']);
     }
 
     /**

@@ -3,16 +3,17 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\ThnAjaran;
-use app\models\ThnAjaranSearch;
+use app\models\Siswa;
+use app\models\SiswaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
- * ThnAjaranController implements the CRUD actions for ThnAjaran model.
+ * SiswaController implements the CRUD actions for Siswa model.
  */
-class ThnAjaranController extends Controller
+class SiswaController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +31,12 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Lists all ThnAjaran models.
+     * Lists all Siswa models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ThnAjaranSearch();
+        $searchModel = new SiswaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +46,7 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Displays a single ThnAjaran model.
+     * Displays a single Siswa model.
      * @param integer $id
      * @return mixed
      */
@@ -57,18 +58,17 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Creates a new ThnAjaran model.
+     * Creates a new Siswa model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ThnAjaran();
+        $model = new Siswa();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_thn_ajaran]);
+            return $this->redirect(['view', 'id' => $model->id_siswa]);
         } else {
-            $model->status='Tidak Aktif';
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -76,7 +76,7 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Updates an existing ThnAjaran model.
+     * Updates an existing Siswa model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -85,9 +85,20 @@ class ThnAjaranController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_thn_ajaran]);
-        } else {
+            if ($model->load(Yii::$app->request->post()))
+        {    
+            $picture = UploadedFile::getInstance($model,'foto_siswa' );
+            var_dump($picture);
+            $model->foto_siswa = $model->kode_siswa.'.'.$picture->extension;        
+
+            if  ($model->save()) {
+             if (!is_null($picture)) 
+             {     
+                $picture->saveAs(Yii::$app->basePath .'/web/uploads/'.$model->foto_siswa);     
+             }   
+            return $this->redirect(['view', 'id' => $model->id_siswa]);
+           }
+        }else {
             return $this->render('update', [
                 'model' => $model,
             ]);
@@ -95,14 +106,14 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Deletes an existing ThnAjaran model.
+     * Deletes an existing Siswa model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-      try
+          try
       {
         $this->findModel($id)->delete();
       
@@ -115,15 +126,15 @@ class ThnAjaranController extends Controller
     }
 
     /**
-     * Finds the ThnAjaran model based on its primary key value.
+     * Finds the Siswa model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ThnAjaran the loaded model
+     * @return Siswa the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ThnAjaran::findOne($id)) !== null) {
+        if (($model = Siswa::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

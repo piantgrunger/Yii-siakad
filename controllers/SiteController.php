@@ -13,6 +13,7 @@ use app\models\ResetPasswordForm;
 use app\models\SignupForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use app\models\Setting;
 
 class SiteController extends Controller
 {
@@ -72,7 +73,17 @@ class SiteController extends Controller
     {
         
           $model = new LoginForm();
-        return $this->render('index',['model'=>$model]);
+          $setting = Setting::findOne(1);
+          $nama_sekolah = $setting->nama_sekolah;
+          $alamat_sekolah = $setting->alamat_sekolah;
+          
+        return $this->render('index',
+                ['model'=>$model,
+                'nama_sekolah' =>$nama_sekolah,
+               'alamat_sekolah' =>$alamat_sekolah,
+                     
+                
+                ]);
     }
 
     /**

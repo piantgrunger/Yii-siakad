@@ -24,7 +24,11 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Setting Siakad'), 'u
         'attributes' => [
             'kode_thn_ajaran',
             'semester',
+            'nama_sekolah',
+            'alamat_sekolah',
+            
             'nama_kepala_sekolah',
+            
        
         ],
     ]) ?>
