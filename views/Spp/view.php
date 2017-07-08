@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Spp */
@@ -35,10 +36,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'bulan',
             'nama_siswa',
             'total_spp',
-            'ket:ntext',
-            'created_at',
-            'updated_at',
         ],
     ]) ?>
+    <?php
+$gridColumns=[['class' => 'yii\grid\SerialColumn'], 
+            'nama_biaya',
+            'total_biaya',
+    ];
+?>
+        <?= GridView::widget([
+        'dataProvider' => $model_dSpp,
+        'columns' => $gridColumns,        'responsive'=>true,
+        'hover'=>true,
+         'resizableColumns'=>true,    
+    ]); ?>
 
 </div>

@@ -39,6 +39,15 @@ $menuItems =
                         ['label' => 'Siswa', 'icon' => 'fa fa-circle-o', 'url' => "@web/siswa/index",],      
                    ]]
                         ,
+                   [
+                        'visible' => !Yii::$app->user->isGuest,
+                        'label' => 'Transaksi',
+                        'icon' => 'fa fa-share',
+                        'url' => '#',
+                        'items' => [
+                     ['label' => 'Pembayaran SPP', 'icon' => 'fa fa-circle-o', 'url' => "@web/spp/index",],
+                   ]]
+                        ,
                    
                 ];
  $menuItems = Mimin::filterMenu($menuItems);

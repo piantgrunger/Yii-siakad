@@ -4,7 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\datecontrol\DateControl;
 use kartik\select2\Select2;
+use wbraganca\dynamicform\DynamicFormWidget;
+use yii\web\View;
 
+
+
+
+
+$js="window.initSelect2Loading = function(id, optVar){
+    initS2Loading(id, optVar)
+};
+window.initSelect2DropStyle = function(id, kvClose, ev){
+    initS2Open(id, kvClose, ev)
+};";
+        
+$this->registerJs($js);        
 /* @var $this yii\web\View */
 /* @var $model app\models\Spp */
 /* @var $form yii\widgets\ActiveForm */
@@ -12,7 +26,7 @@ use kartik\select2\Select2;
 
 <div class="spp-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'dynamic-form']); ?>
         <?= $form->errorSummary($model) ?> <!-- ADDED HERE -->
         
         <div class="row">
@@ -40,8 +54,7 @@ use kartik\select2\Select2;
 
      <?= $form->field($model, 'semester')->dropDownList([ 'Gasal' => 'Gasal', 'Genap' => 'Genap', ], ['prompt' => '']) ?>
    
-    <?= $form->field($model, 'total_spp')->textInput() ?>
-
+    
 
             </div> 
             <div class="col-sm-4">        
@@ -58,9 +71,67 @@ use kartik\select2\Select2;
             </div> 
 
         </div>
-            
+         <div class="padding-v-md">
+        <div class="line line-dashed"></div>
+    </div>
+ 
+    <?php DynamicFormWidget::begin([
+        'widgetContainer' => 'dynamicform_wrapper',
+        'widgetBody' => '.container-items',
+        'widgetItem' => '.biaya-item',
+        'limit' => 10,
+        'min' => 1,
+        'insertButton' => '.add-biaya',
+        'deleteButton' => '.remove-biaya',
+        'model' => $model_dSpp[0],
+        'formId' => 'dynamic-form',
+        'formFields' => [
+            'id_biaya',
+            'total_biaya'
+        ],
+    ]); ?>     
             
 
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Jenis Biaya</th>
+                <th style="width: 450px;">Total</th>
+                <th class="text-center" style="width: 90px;">
+                    <button type="button" class="add-biaya btn btn-success btn-xs"><span class="fa fa-plus"></span></button>
+                </th>
+            </tr>
+        </thead>
+        <tbody class="container-items">
+        <?php foreach ($model_dSpp as $indexbiaya => $modelbiaya): ?>
+            <tr class="biaya-item">
+                <td class="vcenter">
+                    <?php
+                    
+                        // necessary for update action.
+                        if (! $modelbiaya->isNewRecord) {
+                            echo Html::activeHiddenInput($modelbiaya, "[{$indexbiaya}]id_det_spp");
+                        }
+                    ?>
+                    <?= $form->field($modelbiaya, "[{$indexbiaya}]id_biaya")->label(false)->widget(Select2::classname(), [
+    'data' => $dataBiaya,
+    'options' => ['placeholder' => 'Pilih Biaya ...'],
+    'pluginOptions' => [
+        'allowClear' => true
+    ],]) ?>
+                </td>
+                 <td class="vcenter">
+                   
+                    <?= $form->field($modelbiaya, "[{$indexbiaya}]total_biaya")->label(false)->textInput() ?>
+                </td>
+                <td class="text-center vcenter" style="width: 90px; verti">
+                    <button type="button" class="remove-biaya btn btn-danger btn-xs"><span class="fa fa-minus"></span></button>
+                </td>
+            </tr>
+         <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php DynamicFormWidget::end(); ?>
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
     </div>

@@ -20,7 +20,9 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
         'model' => $model,
                   'dataThnAjaran'  =>  $dataThnAjaran ,
                 'dataSiswa' =>$dataSiswa,
-        
+                                'dataBiaya' => $dataBiaya, 
+                       'model_dSpp'=>$model_dSpp,
+
     ]) ?>
 
 </div>

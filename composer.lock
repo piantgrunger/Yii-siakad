@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c90dd56d160af56b0b8143fb3cf50882",
+    "hash": "febdf87e0236e2c92d9128331890f905",
+    "content-hash": "423456bd6162d44f202934d69f185c93",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -44,7 +45,7 @@
                 "theme",
                 "web"
             ],
-            "time": "2017-01-08T21:03:57+00:00"
+            "time": "2017-01-08 21:03:57"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -386,7 +387,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2016-12-11T13:37:11+00:00"
+            "time": "2016-12-11 13:37:11"
         },
         {
             "name": "cebe/yii2-gravatar",
@@ -429,7 +430,7 @@
                 "gravatar",
                 "yii"
             ],
-            "time": "2013-12-10T17:49:58+00:00"
+            "time": "2013-12-10 17:49:58"
         },
         {
             "name": "dmstr/yii2-adminlte-asset",
@@ -489,7 +490,7 @@
                 "theme",
                 "yii2"
             ],
-            "time": "2016-12-09T03:16:30+00:00"
+            "time": "2016-12-09 03:16:30"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -533,7 +534,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2016-07-16T12:58:58+00:00"
+            "time": "2016-07-16 12:58:58"
         },
         {
             "name": "fortawesome/font-awesome",
@@ -581,7 +582,7 @@
                 "font",
                 "icon"
             ],
-            "time": "2016-10-24T15:52:54+00:00"
+            "time": "2016-10-24 15:52:54"
         },
         {
             "name": "hscstudio/yii2-mimin",
@@ -622,7 +623,7 @@
                 "extension",
                 "yii2"
             ],
-            "time": "2016-11-24T19:41:58+00:00"
+            "time": "2016-11-24 19:41:58"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -675,7 +676,7 @@
                 "progress",
                 "upload"
             ],
-            "time": "2017-02-23T07:30:05+00:00"
+            "time": "2017-02-23 07:30:05"
         },
         {
             "name": "kartik-v/bootstrap-star-rating",
@@ -719,7 +720,7 @@
                 "star",
                 "svg"
             ],
-            "time": "2017-02-21T19:18:33+00:00"
+            "time": "2017-02-21 19:18:33"
         },
         {
             "name": "kartik-v/dependent-dropdown",
@@ -761,7 +762,7 @@
                 "option",
                 "select"
             ],
-            "time": "2015-12-16T18:15:01+00:00"
+            "time": "2015-12-16 18:15:01"
         },
         {
             "name": "kartik-v/php-date-formatter",
@@ -1021,7 +1022,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-01-07T03:31:27+00:00"
+            "time": "2017-01-07 03:31:27"
         },
         {
             "name": "kartik-v/yii2-export",
@@ -1081,7 +1082,7 @@
                 "xlsx",
                 "yii2"
             ],
-            "time": "2016-12-28T16:02:15+00:00"
+            "time": "2016-12-28 16:02:15"
         },
         {
             "name": "kartik-v/yii2-grid",
@@ -1237,7 +1238,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2017-01-14T11:51:12+00:00"
+            "time": "2017-01-14 11:51:12"
         },
         {
             "name": "kartik-v/yii2-nav-x",
@@ -1336,7 +1337,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-06-17T17:34:48+00:00"
+            "time": "2015-06-17 17:34:48"
         },
         {
             "name": "kartik-v/yii2-widget-activeform",
@@ -1388,7 +1389,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-11-24T17:29:45+00:00"
+            "time": "2016-11-24 17:29:45"
         },
         {
             "name": "kartik-v/yii2-widget-affix",
@@ -1437,7 +1438,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-03-21T16:55:54+00:00"
+            "time": "2016-03-21 16:55:54"
         },
         {
             "name": "kartik-v/yii2-widget-alert",
@@ -1487,7 +1488,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-04-21T15:32:57+00:00"
+            "time": "2015-04-21 15:32:57"
         },
         {
             "name": "kartik-v/yii2-widget-colorinput",
@@ -1541,7 +1542,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-04-07T11:58:28+00:00"
+            "time": "2016-04-07 11:58:28"
         },
         {
             "name": "kartik-v/yii2-widget-datepicker",
@@ -1595,7 +1596,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-11-11T15:42:04+00:00"
+            "time": "2016-11-11 15:42:04"
         },
         {
             "name": "kartik-v/yii2-widget-datetimepicker",
@@ -1644,7 +1645,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-01-23T19:50:50+00:00"
+            "time": "2017-01-23 19:50:50"
         },
         {
             "name": "kartik-v/yii2-widget-depdrop",
@@ -1693,7 +1694,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-01-10T17:30:48+00:00"
+            "time": "2016-01-10 17:30:48"
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
@@ -1748,7 +1749,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-10-18T06:35:15+00:00"
+            "time": "2016-10-18 06:35:15"
         },
         {
             "name": "kartik-v/yii2-widget-growl",
@@ -1797,7 +1798,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-05-03T08:23:04+00:00"
+            "time": "2015-05-03 08:23:04"
         },
         {
             "name": "kartik-v/yii2-widget-rangeinput",
@@ -1846,7 +1847,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-11-22T06:52:44+00:00"
+            "time": "2015-11-22 06:52:44"
         },
         {
             "name": "kartik-v/yii2-widget-rating",
@@ -1902,7 +1903,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-07-06T19:29:22+00:00"
+            "time": "2016-07-06 19:29:22"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -2004,7 +2005,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-04-21T15:38:40+00:00"
+            "time": "2015-04-21 15:38:40"
         },
         {
             "name": "kartik-v/yii2-widget-spinner",
@@ -2052,7 +2053,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-07-10T17:53:26+00:00"
+            "time": "2015-07-10 17:53:26"
         },
         {
             "name": "kartik-v/yii2-widget-switchinput",
@@ -2102,7 +2103,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-01-10T16:47:35+00:00"
+            "time": "2016-01-10 16:47:35"
         },
         {
             "name": "kartik-v/yii2-widget-timepicker",
@@ -2156,7 +2157,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-01-08T06:36:24+00:00"
+            "time": "2017-01-08 06:36:24"
         },
         {
             "name": "kartik-v/yii2-widget-touchspin",
@@ -2206,7 +2207,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-01-10T17:10:39+00:00"
+            "time": "2016-01-10 17:10:39"
         },
         {
             "name": "kartik-v/yii2-widget-typeahead",
@@ -2254,7 +2255,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-07-07T08:39:29+00:00"
+            "time": "2015-07-07 08:39:29"
         },
         {
             "name": "kartik-v/yii2-widgets",
@@ -2316,7 +2317,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-12-05T10:37:16+00:00"
+            "time": "2015-12-05 10:37:16"
         },
         {
             "name": "league/csv",
@@ -2424,7 +2425,7 @@
                 "php",
                 "utf-8"
             ],
-            "time": "2016-05-10T07:10:19+00:00"
+            "time": "2016-05-10 07:10:19"
         },
         {
             "name": "phpoffice/phpexcel",
@@ -2486,7 +2487,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2016-10-03T10:33:09+00:00"
+            "time": "2016-10-03 10:33:09"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
@@ -2538,7 +2539,7 @@
                 "font",
                 "yii"
             ],
-            "time": "2017-01-11T14:05:47+00:00"
+            "time": "2017-01-11 14:05:47"
         },
         {
             "name": "setasign/fpdi",
@@ -2587,7 +2588,7 @@
                 "fpdi",
                 "pdf"
             ],
-            "time": "2015-11-30T10:53:14+00:00"
+            "time": "2015-11-30 10:53:14"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2641,7 +2642,223 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-12-29T10:10:06+00:00"
+            "time": "2016-12-29 10:10:06"
+        },
+        {
+            "name": "symfony/css-selector",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/css-selector.git",
+                "reference": "9920f285889b075d249717509e073c3f4fbf9718"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/9920f285889b075d249717509e073c3f4fbf9718",
+                "reference": "9920f285889b075d249717509e073c3f4fbf9718",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\CssSelector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-05-17 16:21:40"
+        },
+        {
+            "name": "symfony/dom-crawler",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dom-crawler.git",
+                "reference": "efc337921960808c8cf681b212bfaf08b2acf97e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/efc337921960808c8cf681b212bfaf08b2acf97e",
+                "reference": "efc337921960808c8cf681b212bfaf08b2acf97e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9",
+                "symfony/polyfill-mbstring": "~1.0"
+            },
+            "require-dev": {
+                "symfony/css-selector": "~2.8|~3.0|~4.0"
+            },
+            "suggest": {
+                "symfony/css-selector": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DomCrawler Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-05-25 23:27:00"
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2017-06-14 15:44:48"
+        },
+        {
+            "name": "wbraganca/yii2-dynamicform",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wbraganca/yii2-dynamicform.git",
+                "reference": "fa1fec069ce8262dcb359db8d3b849235ddf7781"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wbraganca/yii2-dynamicform/zipball/fa1fec069ce8262dcb359db8d3b849235ddf7781",
+                "reference": "fa1fec069ce8262dcb359db8d3b849235ddf7781",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/css-selector": "~2.8|~3.0",
+                "symfony/dom-crawler": "~2.8|~3.0",
+                "yiisoft/yii2": "~2.0.5"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "wbraganca\\dynamicform\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Wanderson Bragança",
+                    "email": "wanderson.wbc@gmail.com",
+                    "homepage": "http://wbraganca.com"
+                }
+            ],
+            "description": "It is widget to yii2 framework to clone form elements in a nested manner, maintaining accessibility.",
+            "keywords": [
+                "copy DOM element",
+                "extension",
+                "wbraganca",
+                "widget",
+                "yii2",
+                "yii2 dynamic form",
+                "yii2-dynamicform"
+            ],
+            "time": "2016-09-29 16:38:47"
         },
         {
             "name": "yiisoft/yii2",
@@ -2841,7 +3058,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-12-20T13:33:37+00:00"
+            "time": "2016-12-20 13:33:37"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -2891,7 +3108,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2016-11-30T11:55:45+00:00"
+            "time": "2016-11-30 11:55:45"
         }
     ],
     "packages-dev": [
@@ -3008,7 +3225,7 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2016-04-07T12:29:16+00:00"
+            "time": "2016-04-07 12:29:16"
         },
         {
             "name": "yiisoft/yii2-codeception",
@@ -3054,7 +3271,7 @@
                 "yii2"
             ],
             "abandoned": "codeception/codeception",
-            "time": "2016-10-20T13:07:49+00:00"
+            "time": "2016-10-20 13:07:49"
         },
         {
             "name": "yiisoft/yii2-debug",

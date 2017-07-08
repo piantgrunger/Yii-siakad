@@ -9,7 +9,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use app\models\Setting;
-
+use app\models\d_Spp;
+use yii\helpers\ArrayHelper;
+use yii\data\ActiveDataProvider;
 /**
  * SppController implements the CRUD actions for Spp model.
  */
@@ -52,8 +54,19 @@ class SppController extends Controller
      */
     public function actionView($id)
     {
+           $query = d_Spp::find();
+
+        // add conditions that should always apply here
+
+        $model_dSpp = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+  $query->andFilterWhere(['id_spp'=>$id]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+         'model_dSpp'=> $model_dSpp,
+               
+            
         ]);
     }
 
@@ -65,24 +78,75 @@ class SppController extends Controller
     public function actionCreate()
     {
         $model = new Spp();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_spp]);
+        $model_dSpp = [new d_Spp()];
+        $dataThnAjaran = \app\models\ThnAjaran::getDataBrowseThnAjaran();
+        $dataSiswa = \app\models\Siswa::getDataBrowseSiswa();
+        $dataBiaya = \app\models\Biaya::getDataBrowseBiaya();
+           
+        if ($model->load(Yii::$app->request->post()) ) {
+            $model_dSpp = \app\models\Model::createMultiple(d_Spp::className(),$model_dSpp,'id_det_spp');
+            \yii\base\Model::loadMultiple($model_dSpp, Yii::$app->request->post());
+            $valid=$model->validate(); 
+            $valid = \yii\base\Model::validateMultiple($model_dSpp) && $valid;
+            
+            if ($valid){ 
+            try {
+               $transaction = Yii::$app->db->beginTransaction();
+               $model->total_spp =0;
+               foreach ($model_dSpp as $indexBiaya => $modelBiaya)
+               {
+                 $model->total_spp =+ $modelBiaya->total_biaya;    
+               }   
+               
+               
+                if ($flag = $model->save(false)) {
+                    foreach ($model_dSpp as $indexBiaya => $modelBiaya) {
+ 
+                        if ($flag === false) {
+                            break;
+                        }
+ 
+                        $modelBiaya->id_spp = $model->id_spp;
+ 
+                        if (!($flag = $modelBiaya->save(false))) {
+                            break;
+                        }
+                       
+                        
+                    }
+                }
+                if ($flag) {
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $model->id_spp]);
+                } else {
+                    $transaction->rollBack();
+                }
+            } catch (Exception $e) {
+                $transaction->rollBack();
+            }
+            
+            } 
+              return $this->render('create', [
+                'model' => $model,
+                 'dataThnAjaran'  =>  $dataThnAjaran ,
+                'dataSiswa' =>$dataSiswa,
+                'dataBiaya' => $dataBiaya, 
+                'model_dSpp'=>(empty($model_dSpp)) ? [new d_Spp]  : $model_dSpp,
+                    
+            ]);
+        
         } else {
             $model->tgl_spp =  date('Y-m-d');
             $model->bulan =  date('n');
             $setting = Setting::findOne(1);
             $model->id_thn_ajaran = $setting->id_thn_ajaran;
             $model->semester = $setting->semester;
-            $dataThnAjaran = \app\models\ThnAjaran::getDataBrowseThnAjaran();
-            $dataSiswa = \app\models\Siswa::getDataBrowseSiswa();
-            
-            
-            
             return $this->render('create', [
                 'model' => $model,
                  'dataThnAjaran'  =>  $dataThnAjaran ,
                 'dataSiswa' =>$dataSiswa,
+                'dataBiaya' => $dataBiaya, 
+                'model_dSpp'=>(empty($model_dSpp)) ? [new d_Spp]  : $model_dSpp,
                     
             ]);
         }
@@ -97,20 +161,80 @@ class SppController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $dataThnAjaran = \app\models\ThnAjaran::getDataBrowseThnAjaran();
+        $dataSiswa = \app\models\Siswa::getDataBrowseSiswa();
+        $dataBiaya = \app\models\Biaya::getDataBrowseBiaya();
+        $model_dSpp= $model->detail;           
+      
+        if ($model->load(Yii::$app->request->post()) ) {
+           $oldIDs = ArrayHelper::map($model_dSpp, 'id_det_spp', 'id_det_spp');
+          
+            $model_dSpp = \app\models\Model::createMultiple(d_Spp::className(),$model_dSpp,'id_det_spp');
+            \yii\base\Model::loadMultiple($model_dSpp, Yii::$app->request->post());
+             $deletedIDs = array_diff($oldIDs, array_filter(ArrayHelper::map($model_dSpp, 'id_det_spp', 'id_det_spp')));
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_spp]);
+            $valid=$model->validate(); 
+            $valid = \yii\base\Model::validateMultiple($model_dSpp) && $valid;
+            
+            if ($valid){ 
+            try {
+               $transaction = Yii::$app->db->beginTransaction();
+               $model->total_spp =0;
+               foreach ($model_dSpp as $indexBiaya => $modelBiaya)
+               {
+                 $model->total_spp =+ $modelBiaya->total_biaya;    
+               }   
+              
+               if ($flag = $model->save(false)) {
+                         if (!empty($deletedIDs)) {
+                             d_Spp::deleteAll(['id_det_spp' => $deletedIDs]);
+                        }
+                    foreach ($model_dSpp as $indexBiaya => $modelBiaya) {
+ 
+                        if ($flag === false) {
+                            break;
+                        }
+ 
+                        $modelBiaya->id_spp = $model->id_spp;
+ 
+                        if (!($flag = $modelBiaya->save(false))) {
+                            break;
+                        }
+                       
+                        
+                    }
+                }
+                if ($flag) {
+                    $transaction->commit();
+                    return $this->redirect(['view', 'id' => $model->id_spp]);
+                } else {
+                    $transaction->rollBack();
+                }
+            } catch (Exception $e) {
+                $transaction->rollBack();
+            }
+            
+            } 
+              return $this->render('create', [
+                'model' => $model,
+                 'dataThnAjaran'  =>  $dataThnAjaran ,
+                'dataSiswa' =>$dataSiswa,
+                'dataBiaya' => $dataBiaya, 
+                'model_dSpp'=>(empty($model_dSpp)) ? [new d_Spp]  : $model_dSpp,
+                    
+            ]);
+        
         } else {
-                 $dataThnAjaran = \app\models\ThnAjaran::getDataBrowseThnAjaran();
-            $dataSiswa = \app\models\Siswa::getDataBrowseSiswa();
             
        
             return $this->render('update', [
                 'model' => $model,
-                          'dataThnAjaran'  =>  $dataThnAjaran ,
+                 'dataThnAjaran'  =>  $dataThnAjaran ,
                 'dataSiswa' =>$dataSiswa,
-            ]);
-        }
+                'dataBiaya' => $dataBiaya, 
+                'model_dSpp'=>(empty($model_dSpp)) ? [new d_Spp]  : $model_dSpp,
+                    
+            ]);     }
     }
 
     /**

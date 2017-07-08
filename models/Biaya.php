@@ -7,7 +7,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
-
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "tb_m_biaya".
@@ -78,4 +78,15 @@ class Biaya extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
     }
+    public function getDataBrowseBiaya()
+    {        
+     return ArrayHelper::map(
+                     biaya::find()
+                                        ->select([
+                                                'id_biaya','ket_biaya' => 'CONCAT(kode_biaya," - ",nama_biaya)'
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_biaya', 'ket_biaya');
+    }
+
 }

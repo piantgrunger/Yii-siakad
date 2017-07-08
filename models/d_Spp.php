@@ -72,4 +72,10 @@ class d_Spp extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Spp::className(), ['id_spp' => 'id_spp']);
     }
+    
+        public function getNama_Biaya()
+    {
+        return $this->biaya->nama_biaya;
+    }
+
 }

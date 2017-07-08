@@ -61,7 +61,7 @@ class Spp extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['no_spp', 'tgl_spp', 'semester', 'bulan', 'id_siswa', 'total_spp'], 'required'],
+            [['no_spp', 'tgl_spp', 'semester', 'bulan', 'id_siswa'], 'required'],
             [['tgl_spp', 'created_at', 'updated_at'], 'safe'],
             [['id_thn_ajaran', 'bulan', 'id_siswa'], 'integer'],
             [['semester', 'ket'], 'string'],
@@ -96,7 +96,7 @@ class Spp extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTbDtSppBiayas()
+    public function getDetail()
     {
         return $this->hasMany(d_Spp::className(), ['id_spp' => 'id_spp']);
     }
