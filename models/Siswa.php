@@ -7,6 +7,7 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 
 /**
@@ -129,5 +130,16 @@ class Siswa extends \yii\db\ActiveRecord
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
+    }
+    
+     public function getDataBrowseSiswa()
+    {        
+     return ArrayHelper::map(
+                     siswa::find()
+                                        ->select([
+                                                'id_siswa','ket_siswa' => 'CONCAT(kode_siswa," - ",nama_siswa)'
+                                        ])
+                                        ->asArray()
+                                        ->all(), 'id_siswa', 'ket_siswa');
     }
 }

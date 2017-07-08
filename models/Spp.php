@@ -7,26 +7,29 @@ use Yii;
 use yii\db\ActiveRecord;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 
 
 /**
- * This is the model class for table "tb_setting".
+ * This is the model class for table "tb_mt_spp".
  *
- * @property int $id_setting
+ * @property int $id_spp
+ * @property string $no_spp
+ * @property string $tgl_spp
  * @property int $id_thn_ajaran
  * @property string $semester
- * @property int $id_kepsek
+ * @property int $bulan
+ * @property int $id_siswa
+ * @property string $total_spp
  * @property string $ket
- * @property string $nama_sekolah
- * @property string $alamat_sekolah
- 
- * * @property string $created_at
+ * @property string $created_at
  * @property string $updated_at
  *
- * @property TbMKaryawan $kepsek
+ * @property TbDtSppBiaya[] $tbDtSppBiayas
+ * @property TbMSiswa $siswa
  * @property TbMThnAjaran $thnAjaran
  */
-class Setting extends \yii\db\ActiveRecord
+class Spp extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -49,7 +52,7 @@ class Setting extends \yii\db\ActiveRecord
     }
     public static function tableName()
     {
-        return 'tb_setting';
+        return 'tb_mt_spp';
     }
 
     /**
@@ -58,11 +61,14 @@ class Setting extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_thn_ajaran', 'semester', 'id_kepsek'], 'required'],
-            [['id_thn_ajaran', 'id_kepsek'], 'integer'],
-            [['semester', 'ket','nama_sekolah','alamat_sekolah'], 'string'],
-            [['created_at', 'updated_at','nama_sekolah','alamat_sekolah'], 'safe'],
-            [['id_kepsek'], 'exist', 'skipOnError' => true, 'targetClass' => Karyawan::className(), 'targetAttribute' => ['id_kepsek' => 'id_karyawan']],
+            [['no_spp', 'tgl_spp', 'semester', 'bulan', 'id_siswa', 'total_spp'], 'required'],
+            [['tgl_spp', 'created_at', 'updated_at'], 'safe'],
+            [['id_thn_ajaran', 'bulan', 'id_siswa'], 'integer'],
+            [['semester', 'ket'], 'string'],
+            [['total_spp'], 'number'],
+            [['no_spp'], 'string', 'max' => 50],
+            [['no_spp'], 'unique'],
+            [['id_siswa'], 'exist', 'skipOnError' => true, 'targetClass' => Siswa::className(), 'targetAttribute' => ['id_siswa' => 'id_siswa']],
             [['id_thn_ajaran'], 'exist', 'skipOnError' => true, 'targetClass' => ThnAjaran::className(), 'targetAttribute' => ['id_thn_ajaran' => 'id_thn_ajaran']],
         ];
     }
@@ -73,12 +79,14 @@ class Setting extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id_setting' => Yii::t('app', 'Id Setting'),
+            'id_spp' => Yii::t('app', 'Id Spp'),
+            'no_spp' => Yii::t('app', 'No Spp'),
+            'tgl_spp' => Yii::t('app', 'Tgl Spp'),
             'id_thn_ajaran' => Yii::t('app', 'Id Thn Ajaran'),
             'semester' => Yii::t('app', 'Semester'),
-            'id_kepsek' => Yii::t('app', 'Id Kepsek'),
-            'nama_sekolah' => Yii::t('app', 'Nama Sekolah'),
-            'alamat_sekolah' => Yii::t('app', 'Alamat Sekolah'),
+            'bulan' => Yii::t('app', 'Bulan'),
+            'id_siswa' => Yii::t('app', 'Id Siswa'),
+            'total_spp' => Yii::t('app', 'Total Spp'),
             'ket' => Yii::t('app', 'Ket'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
@@ -88,9 +96,17 @@ class Setting extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getKepsek()
+    public function getTbDtSppBiayas()
     {
-        return $this->hasOne(karyawan::className(), ['id_karyawan' => 'id_kepsek']);
+        return $this->hasMany(d_Spp::className(), ['id_spp' => 'id_spp']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSiswa()
+    {
+        return $this->hasOne(Siswa::className(), ['id_siswa' => 'id_siswa']);
     }
 
     /**
@@ -100,12 +116,11 @@ class Setting extends \yii\db\ActiveRecord
     {
         return $this->hasOne(ThnAjaran::className(), ['id_thn_ajaran' => 'id_thn_ajaran']);
     }
-    
-    public function  getNama_kepala_sekolah()
+       public function  getNama_siswa()
     {
-        if ($this->kepsek !== null)
+        if ($this->siswa !== null)
         {    
-          return $this->kepsek->nama_karyawan;
+          return $this->siswa->nama_siswa;
         } else {
             return null;    
         }  
@@ -120,4 +135,3 @@ class Setting extends \yii\db\ActiveRecord
         }   
     }    
 }
-
