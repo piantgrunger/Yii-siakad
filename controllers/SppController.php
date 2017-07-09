@@ -12,6 +12,8 @@ use app\models\Setting;
 use app\models\d_Spp;
 use yii\helpers\ArrayHelper;
 use yii\data\ActiveDataProvider;
+use app\models\Biaya;
+use yii\helpers\Json;
 /**
  * SppController implements the CRUD actions for Spp model.
  */
@@ -70,11 +72,23 @@ class SppController extends Controller
         ]);
     }
 
+   public function actionBiaya($id){
+    // you may need to check whether the entered ID is valid or not
+    $model= Biaya::findOne(['id_biaya'=>$id]);
+    return Json::encode([
+        'id_biaya'=>$model->id_biaya,
+        'total_biaya'=>$model->total_biaya,
+    ]);
+    
+
+   
+   }    
     /**
      * Creates a new Spp model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
-     */
+     */ 
+    
     public function actionCreate()
     {
         $model = new Spp();

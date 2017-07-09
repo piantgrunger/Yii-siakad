@@ -6,6 +6,7 @@ use kartik\datecontrol\DateControl;
 use kartik\select2\Select2;
 use wbraganca\dynamicform\DynamicFormWidget;
 use yii\web\View;
+use yii\helpers\Url;
 
 
 
@@ -19,6 +20,7 @@ window.initSelect2DropStyle = function(id, kvClose, ev){
 };";
         
 $this->registerJs($js);        
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Spp */
 /* @var $form yii\widgets\ActiveForm */
@@ -115,7 +117,15 @@ $this->registerJs($js);
                     ?>
                     <?= $form->field($modelbiaya, "[{$indexbiaya}]id_biaya")->label(false)->widget(Select2::classname(), [
     'data' => $dataBiaya,
-    'options' => ['placeholder' => 'Pilih Biaya ...'],
+     
+ 'options' => ['placeholder' => 'Pilih Biaya ...',
+        "onchange" => '$.post( "'.Url::to(['spp/biaya']).'?id="+$(this).val(), function(data) {
+                                                  
+                                                  data1 = JSON.parse(data)
+                                                  $( "input#d_spp-0-total_biaya" ).val(data1.total_biaya);
+                                                  $( "input#d_spp-0-total_biaya" ).focus();
+                                                });',
+     ],
     'pluginOptions' => [
         'allowClear' => true
     ],]) ?>
@@ -128,7 +138,7 @@ $this->registerJs($js);
                     <button type="button" class="remove-biaya btn btn-danger btn-xs"><span class="fa fa-minus"></span></button>
                 </td>
             </tr>
-         <?php endforeach; ?>
+         <?php  endforeach; ?>
         </tbody>
     </table>
     <?php DynamicFormWidget::end(); ?>
