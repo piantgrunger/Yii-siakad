@@ -119,11 +119,11 @@ $this->registerJs($js);
     'data' => $dataBiaya,
      
  'options' => ['placeholder' => 'Pilih Biaya ...',
-        "onchange" => '$.post( "'.Url::to(['spp/biaya']).'?id="+$(this).val(), function(data) {
+        "onchange" => 'var index  = $(this).attr("id").replace(/[^0-9.]/g, ""); $.post( "'.Url::to(['spp/biaya']).'?id="+$(this).val(), function(data) {
                                                   
                                                   data1 = JSON.parse(data)
-                                                  $( "input#d_spp-0-total_biaya" ).val(data1.total_biaya);
-                                                  $( "input#d_spp-0-total_biaya" ).focus();
+                                                  $( "input#d_spp-"+index+"-total_biaya" ).val(data1.total_biaya);
+                                                  $( "input#d_spp-"+index+"-total_biaya" ).focus();
                                                 });',
      ],
     'pluginOptions' => [

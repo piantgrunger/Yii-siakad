@@ -109,7 +109,7 @@ class SppController extends Controller
                $model->total_spp =0;
                foreach ($model_dSpp as $indexBiaya => $modelBiaya)
                {
-                 $model->total_spp =+ $modelBiaya->total_biaya;    
+                 $model->total_spp +=$modelBiaya->total_biaya;    
                }   
                
                
@@ -196,7 +196,7 @@ class SppController extends Controller
                $model->total_spp =0;
                foreach ($model_dSpp as $indexBiaya => $modelBiaya)
                {
-                 $model->total_spp =+ $modelBiaya->total_biaya;    
+                 $model->total_spp += $modelBiaya->total_biaya;    
                }   
               
                if ($flag = $model->save(false)) {
