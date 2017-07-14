@@ -155,6 +155,8 @@ class SppController extends Controller
             $setting = Setting::findOne(1);
             $model->id_thn_ajaran = $setting->id_thn_ajaran;
             $model->semester = $setting->semester;
+        
+            
             return $this->render('create', [
                 'model' => $model,
                  'dataThnAjaran'  =>  $dataThnAjaran ,

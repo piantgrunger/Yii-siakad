@@ -1,6 +1,6 @@
 <?php
 
-
+use hscstudio\mimin\components\Mimin;
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax; use kartik\export\ExportMenu;
@@ -13,7 +13,11 @@ $gridColumns=[['class' => 'yii\grid\SerialColumn'],
             // 'created_at',
             // 'updated_at',
 
-         ['class' => 'yii\grid\ActionColumn'],]; echo ExportMenu::widget(['dataProvider' => $dataProvider,'columns' => $gridColumns]);
+         ['class' => 'yii\grid\ActionColumn',
+                 'template' => Mimin::filterActionColumn([
+              'update','delete','view'
+          ],$this->context->route),
+             ],]; echo ExportMenu::widget(['dataProvider' => $dataProvider,'columns' => $gridColumns]);
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\BiayaSearch */
@@ -29,7 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Biaya  Baru'), ['create'], ['class' => 'btn btn-success']) ?>
+        
+        <?php if ((Mimin::checkRoute($this->context->id.'/create'))){ echo Html::a(Yii::t('app', 'Biaya  Baru'), ['create'], ['class' => 'btn btn-success']);} ?>
     </p>
 
     <?= GridView::widget([

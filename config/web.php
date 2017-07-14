@@ -10,7 +10,7 @@ $config = [
     // set target language to be Indonesia
   'language' => 'id-ID',
     'as access' => [
-     'class' => '\hscstudio\mimin\components\AccessControl',
+     'class' =>  '\hscstudio\mimin\components\AccessControl',
      'allowActions' => [
         // add wildcard allowed action here!
         'site/*',
@@ -79,7 +79,6 @@ $config = [
      'mimin' => [
         'class' => '\hscstudio\mimin\Module',
     ],
-     
    ], 
 
   // set source language to be English

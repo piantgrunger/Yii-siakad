@@ -1,5 +1,5 @@
 <?php
-
+use hscstudio\mimin\components\Mimin;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
@@ -15,14 +15,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Ubah'), ['update', 'id' => $model->id_biaya], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Hapus'), ['delete', 'id' => $model->id_biaya], [
+        <?php if ((Mimin::checkRoute($this->context->id.'/update'))){ echo Html::a(Yii::t('app', 'Ubah'), ['update', 'id' => $model->id_biaya], ['class' => 'btn btn-primary']) ;}?>
+        <?php if ((Mimin::checkRoute($this->context->id.'/delete'))){ echo Html::a(Yii::t('app', 'Hapus'), ['delete', 'id' => $model->id_biaya], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Apakah Anda yakin ingin menghapus item ini??'),
                 'method' => 'post',
             ],
-        ]) ?>
+        ]); }?>
     </p>
 
     <?= DetailView::widget([

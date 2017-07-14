@@ -35,7 +35,7 @@
         "kartik-v/yii2-datecontrol": "dev-master",
         "league/csv": "^8.2",
         "wbraganca/yii2-dynamicform": "*"
-    
+  
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

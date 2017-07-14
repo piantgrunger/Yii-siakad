@@ -2,12 +2,13 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use hscstudio\mimin\components\Mimin;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\ThnAjaran */
 
 $this->title = $model->kode_thn_ajaran;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Daftar Tahun Ajaran'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Daftar Thn Ajaran', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="thn-ajaran-view">
@@ -15,15 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Ubah'), ['update', 'id' => $model->id_thn_ajaran], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Hapus'), ['delete', 'id' => $model->id_thn_ajaran], [
+             <?php if ((Mimin::checkRoute($this->context->id."/update"))){ ?>        <?= Html::a('Ubah', ['update', 'id' => $model->id_thn_ajaran], ['class' => 'btn btn-primary']) ?>
+        <?php } if ((Mimin::checkRoute($this->context->id."/delete"))){ ?>        <?= Html::a('Hapus', ['delete', 'id' => $model->id_thn_ajaran], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => Yii::t('app', 'Apakah Anda yakin ingin menghapus item ini??'),
+                'confirm' => 'Apakah Anda yakin ingin menghapus item ini??',
                 'method' => 'post',
             ],
         ]) ?>
-    </p>
+        <?php } ?>    </p>
 
     <?= DetailView::widget([
         'model' => $model,

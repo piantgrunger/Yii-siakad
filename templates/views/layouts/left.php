@@ -2,8 +2,9 @@
 use hscstudio\mimin\components\Mimin;
 
 $menuItems =
+        
         [
-                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => '@web/gii','visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii/'],'visible' => !Yii::$app->user->isGuest],
                              
               [
                         'visible' => !Yii::$app->user->isGuest,
@@ -11,9 +12,9 @@ $menuItems =
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
-                    ['label' => 'App. Route', 'icon' =>  'fa fa-circle-o', 'url' => '@web/mimin/route','visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'Role', 'icon' =>  'fa fa-circle-o', 'url' => '@web/mimin/role','visible' => !Yii::$app->user->isGuest],
-                    ['label' => 'User', 'icon' => ' fa fa-circle-o', 'url' => '@web/mimin/user','visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'App. Route', 'icon' =>  'fa fa-circle-o', 'url' => ['/mimin/route'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'Role', 'icon' =>  'fa fa-circle-o', 'url' => ['/mimin/role'],'visible' => !Yii::$app->user->isGuest],
+                    ['label' => 'User', 'icon' => ' fa fa-circle-o', 'url' => ['/mimin/user'],'visible' => !Yii::$app->user->isGuest],
                    ]]
                         ,
                    [
@@ -23,7 +24,7 @@ $menuItems =
                         'url' => '#',
                         'items' => [
                
-                      ['label' => 'Setting Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => "@web/setting/index",],
+                      ['label' => 'Setting Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => ["/setting/index"],],
                    ]],
                    
                    [
@@ -32,11 +33,11 @@ $menuItems =
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
-                     ['label' => 'Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => "@web/thn-ajaran/index",],
-                  ['label' => 'Biaya', 'icon' => 'fa fa-circle-o', 'url' => "@web/biaya/index",],
+                     ['label' => 'Tahun Ajaran', 'icon' => 'fa fa-circle-o', 'url' => ["/thn-ajaran/index"],],
+                  ['label' => 'Biaya', 'icon' => 'fa fa-circle-o', 'url' => ["/biaya/index"],],
                 
-                      ['label' => 'Karyawan', 'icon' => 'fa fa-circle-o', 'url' => "@web/karyawan/index",],
-                        ['label' => 'Siswa', 'icon' => 'fa fa-circle-o', 'url' => "@web/siswa/index",],      
+                      ['label' => 'Karyawan', 'icon' => 'fa fa-circle-o', 'url' => ["/karyawan/index"],],
+                        ['label' => 'Siswa', 'icon' => 'fa fa-circle-o', 'url' => ["/siswa/index"],],      
                    ]]
                         ,
                    [
@@ -45,12 +46,13 @@ $menuItems =
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
-                     ['label' => 'Pembayaran SPP', 'icon' => 'fa fa-circle-o', 'url' => "@web/spp/index",],
+                     ['label' => 'Pembayaran SPP', 'icon' => 'fa fa-circle-o', 'url' => ["/spp/index"],],
                    ]]
                         ,
                    
                 ];
- $menuItems = Mimin::filterMenu($menuItems);
+
+$menuItems = Mimin::filterMenu($menuItems);
         
 ?>
 <aside class="main-sidebar">

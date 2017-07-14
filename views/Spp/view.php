@@ -1,5 +1,5 @@
 <?php
-
+use hscstudio\mimin\components\Mimin;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use kartik\grid\GridView;
@@ -16,8 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
+                    <?php if ((Mimin::checkRoute($this->context->id."/update"))){ ?>    
         <?= Html::a(Yii::t('app', 'Ubah'), ['update', 'id' => $model->id_spp], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Hapus'), ['delete', 'id' => $model->id_spp], [
+           <?php } if ((Mimin::checkRoute($this->context->id."/delete"))){ ?>     
+   <?= Html::a(Yii::t('app', 'Hapus'), ['delete', 'id' => $model->id_spp], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Apakah Anda yakin ingin menghapus item ini??'),
@@ -25,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+           <?php } ?>
 
     <?= DetailView::widget([
         'model' => $model,
