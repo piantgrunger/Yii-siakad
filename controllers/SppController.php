@@ -155,6 +155,18 @@ class SppController extends Controller
             $setting = Setting::findOne(1);
             $model->id_thn_ajaran = $setting->id_thn_ajaran;
             $model->semester = $setting->semester;
+            
+            $modelBiaya = Biaya::find()->where(['jenis_biaya'=>'wajib'])->all();;
+            foreach ($modelBiaya as $mbiaya)
+            {
+                $model_det = new d_Spp();
+                $model_det->id_biaya = $mbiaya->id_biaya;
+                $model_det->total_biaya = $mbiaya->total_biaya;
+                 array_push($model_dSpp, $model_det);
+            } 
+                 
+            
+            
         
             
             return $this->render('create', [

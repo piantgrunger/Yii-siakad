@@ -1,13 +1,16 @@
 <?php
 use hscstudio\mimin\components\Mimin;
+use yii\helpers\ArrayHelper;
+
+
 
 $menuItems =
         
         [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii/'],'visible' => !Yii::$app->user->isGuest],
-                             
+                              
               [
-                        'visible' => !Yii::$app->user->isGuest,
+                        
                         'label' => 'Manajemen User / Group',
                         'icon' => 'fa fa-share',
                         'url' => '#',
@@ -53,7 +56,12 @@ $menuItems =
                 ];
 
 $menuItems = Mimin::filterMenu($menuItems);
+$menuItems =ArrayHelper::merge($menuItems, [['label' => 'Logout', 'icon' => 'fa fa-file-code-o', 'url' => ['site/logout'],   'template' => '<a href="{url}" data-method="post">{label}</a>','visible' => !Yii::$app->user->isGuest],]);
+$menuItems =ArrayHelper::merge($menuItems, [['label' => 'Login', 'icon' => 'fa fa-file-code-o', 'url' => ['site/logout'],   'template' => '<a href="{url}" data-method="post">{label}</a>','visible' => Yii::$app->user->isGuest],]);
+
         
+
+    
 ?>
 <aside class="main-sidebar">
 
@@ -71,3 +79,4 @@ $menuItems = Mimin::filterMenu($menuItems);
     </section>
 
 </aside>
+                    

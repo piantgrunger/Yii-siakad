@@ -4,6 +4,7 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+$this->title = 'Sistem Informasi Akademik';
 
 if (Yii::$app->controller->action->id === 'login') { 
 /**
